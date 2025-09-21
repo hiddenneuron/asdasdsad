@@ -5,22 +5,24 @@ import { CheckCircle, Star, Users } from 'lucide-react';
 
 function FeatureShowcase() {
   return (
-    <section className="relative py-20 lg:py-32 bg-white">
+    <section className="relative py-16 md:py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-7xl font-black text-black mb-6 animate-fade-in-up">
+        <div className="text-center mb-12 md:mb-20">
+          {/* MODIFICATION: Responsive font sizes */}
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-black mb-6 animate-fade-in-up">
             More Than a Plan—
             <br />
             <span className="text-black/60">It's Your Personal Mentor</span>
           </h2>
-          <p className="text-2xl text-black/70 animate-fade-in-up delay-200">See what makes NextStep different</p>
+          <p className="text-lg md:text-2xl text-black/70 animate-fade-in-up delay-200">See what makes NextStep different</p>
         </div>
         
         <div className="relative animate-fade-in-up delay-400">
           <div className="backdrop-blur-xl bg-white/60 border border-black/10 rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
             <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent"></div>
-            <div className="relative p-12">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* MODIFICATION: Responsive padding */}
+            <div className="relative p-6 md:p-12">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="space-y-8">
                   {[
                     { icon: CheckCircle, title: "AI-Generated Milestones", desc: "Clear, achievable goals tailored to your timeline", color: "bg-black/10" },
@@ -29,7 +31,7 @@ function FeatureShowcase() {
                   ].map((feature, index) => (
                     <div key={index} className={`flex items-start space-x-4 group animate-slide-in-left delay-${index * 200}`}>
                       <div className="relative">
-                        <div className={`w-12 h-12 ${feature.color} backdrop-blur-sm rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110`}>
+                        <div className={`w-12 h-12 ${feature.color} backdrop-blur-sm rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0`}>
                           <feature.icon className="w-6 h-6 text-black" />
                         </div>
                         <div className="absolute inset-0 bg-black/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
@@ -43,9 +45,9 @@ function FeatureShowcase() {
                 </div>
                 
                 <div className="relative">
-                  <div className="backdrop-blur-sm bg-black/5 border border-black/10 rounded-2xl p-8 hover:bg-black/10 transition-all duration-500">
+                  <div className="backdrop-blur-sm bg-black/5 border border-black/10 rounded-2xl p-6 md:p-8 hover:bg-black/10 transition-all duration-500">
                     <div className="space-y-6">
-                      <div className="flex items-center justify-between">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="text-lg font-bold text-black">Frontend Developer Path</span>
                         <span className="text-sm text-black/70 font-semibold">70% Complete</span>
                       </div>

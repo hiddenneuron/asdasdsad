@@ -1,37 +1,34 @@
 // FILE: src/App.tsx
 
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Import Components
-import Header from './components/Header';
-import Hero from './components/Hero';
-import HowItWorks from './components/HowItWorks';
-import FeatureShowcase from './components/FeatureShowcase';
-import UseCases from './components/UseCases';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
+// Import Pages
+import LandingPage from './pages/LandingPage';
+import HomePage from './pages/HomePage';
+import InputFormPage from './pages/InputFormPage';
+import CareerPathPage from './pages/CareerPathPage';
+import NotFoundPage from './pages/NotFoundPage';
+import JobPage from './pages/JobPage';
+import DashboardPage from './pages/DashboardPage';
+import PomodoroPage from './pages/PomodoroPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-black overflow-x-hidden">
-      {/* Animated Background Elements */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-black/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-black/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-black/4 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
-
-      <Header />
-      <main>
-        <Hero />
-        {/* <HowItWorks /> */}
-        <FeatureShowcase />
-        <UseCases />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/input-form" element={<InputFormPage />} />
+        <Route path="/career-path" element={<CareerPathPage />} />
+        <Route path="/job/:jobId" element={<JobPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/pomodoro" element={<PomodoroPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+

@@ -1,69 +1,40 @@
-// FILE: src/components/Hero.tsx
+// FILE: src/components/HowItWorks.tsx
 
 import React from 'react';
-import { Upload, Brain, Play, ArrowRight } from 'lucide-react';
+import { Upload, Brain, Play } from 'lucide-react';
 
-function Hero() {
+function HowItWorks() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 min-h-screen flex items-center">
+    <section className="relative py-20 lg:py-32 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-6xl lg:text-8xl font-black text-black leading-none tracking-tight">
-                <span className="block animate-fade-in-up">FIND</span>
-                <span className="block animate-fade-in-up delay-200">YOUR</span>
-                <span className="block animate-fade-in-up delay-400">PATH</span>
-                <span className="block text-black/60 animate-fade-in-up delay-600">IN TECH</span>
-              </h1>
-              <p className="text-xl lg:text-2xl text-black/70 leading-relaxed max-w-2xl animate-fade-in-up delay-800">
-                From resume to roadmap, instantly. Your AI-powered guide to a career in tech - 
-                whether you're exploring options or ready to build your future.
-              </p>
-            </div>
-            
-            <div className="animate-fade-in-up delay-1000">
-              <button className="group relative overflow-hidden bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative flex items-center space-x-3">
-                  <span>Create My Roadmap</span>
-                  <ArrowRight className="w-6 h-6 transform transition-transform duration-300 group-hover:translate-x-2" />
+        <div className="text-center mb-20">
+          <h2 className="text-5xl lg:text-7xl font-black mb-6 animate-fade-in-up">
+            How It Works
+          </h2>
+          <p className="text-2xl text-white/70 animate-fade-in-up delay-200">Your journey starts in 3 simple steps</p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-12">
+          {[
+            { icon: Upload, title: "Provide Your Input", desc: "Upload your resume or simply tell us your interests. No resume? No problem. We'll guide you from scratch.", delay: "delay-0" },
+            { icon: Brain, title: "Get Your AI Roadmap", desc: "Our AI analyzes your skills and goals to generate a personalized, step-by-step roadmap.", delay: "delay-300" },
+            { icon: Play, title: "Start Learning", desc: "Receive a curated list of the best free courses, GitHub projects, and resources to master each skill.", delay: "delay-600" }
+          ].map((step, index) => (
+            <div key={index} className={`text-center group animate-fade-in-up ${step.delay}`}>
+              <div className="relative mb-8 inline-block">
+                <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <step.icon className="w-12 h-12 text-black" />
                 </div>
-                <div className="absolute inset-0 bg-black rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-              </button>
-            </div>
-          </div>
-          
-          {/* Glassmorphism Illustration */}
-          <div className="relative animate-fade-in-up delay-1200">
-            <div className="relative backdrop-blur-xl bg-white/10 border border-black/10 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl"></div>
-              <div className="relative space-y-8">
-                {[
-                  { icon: Upload, title: "Share Your Goals or Resume", desc: "Tell us about your interests", delay: "delay-0" },
-                  { icon: Brain, title: "Receive AI Recommendations", desc: "Personalized career paths", delay: "delay-300" },
-                  { icon: Play, title: "Start Learning with Clear Roadmap", desc: "Curated resources & milestones", delay: "delay-600" }
-                ].map((step, index) => (
-                  <div key={index} className={`flex items-center space-x-4 animate-slide-in-right ${step.delay}`}>
-                    <div className="relative group">
-                      <div className={`w-14 h-14 ${index === 2 ? 'bg-black' : 'bg-white/20 backdrop-blur-sm'} rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110`}>
-                        <step.icon className={`w-7 h-7 ${index === 2 ? 'text-white' : 'text-black'}`} />
-                      </div>
-                      <div className="absolute inset-0 bg-black/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-black">{step.title}</div>
-                      <div className="text-sm text-black/60">{step.desc}</div>
-                    </div>
-                  </div>
-                ))}
+                <div className="absolute inset-0 bg-white rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
               </div>
+              <h3 className="text-3xl font-bold mb-6">{step.title}</h3>
+              <p className="text-white/70 leading-relaxed text-lg">{step.desc}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-export default Hero;
+export default HowItWorks;

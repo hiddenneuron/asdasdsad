@@ -1,6 +1,7 @@
 // FILE: src/components/Hero.tsx
 
 import React from 'react';
+import { Link } from 'react-router-dom'; // <-- 1. Import Link
 import { Upload, Brain, Play, ArrowRight } from 'lucide-react';
 
 function Hero() {
@@ -11,7 +12,6 @@ function Hero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-black text-black leading-none tracking-tight">
-                {/* MODIFICATION: Removed "block" class to allow text to flow inline */}
                 <span>FIND </span>
                 <span>YOUR </span>
                 <span>PATH </span>
@@ -22,20 +22,24 @@ function Hero() {
               </p>
             </div>
             
+            {/* MODIFICATION: Wrapped the button in a Link component */}
             <div className="animate-fade-in-up delay-1000">
-              <button className="group relative overflow-hidden bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative flex items-center space-x-3">
-                  <span>Create My Roadmap</span>
-                  <ArrowRight className="w-6 h-6 transform transition-transform duration-300 group-hover:translate-x-2" />
-                </div>
-                <div className="absolute inset-0 bg-black rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-              </button>
+              <Link to="/home"> {/* <-- 2. Add Link wrapper */}
+                <button className="group relative overflow-hidden bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative flex items-center space-x-3">
+                    <span>Create My Roadmap</span>
+                    <ArrowRight className="w-6 h-6 transform transition-transform duration-300 group-hover:translate-x-2" />
+                  </div>
+                  <div className="absolute inset-0 bg-black rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+                </button>
+              </Link>
             </div>
           </div>
           
           {/* Glassmorphism Illustration */}
           <div className="relative animate-fade-in-up delay-1200">
+            {/* ... (rest of the component is unchanged) ... */}
             <div className="relative backdrop-blur-xl bg-white/10 border border-black/10 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl"></div>
               <div className="relative space-y-8">
